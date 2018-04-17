@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html>
     <head><title>::: 본익투어 비행기 예매 :::</title>
-        <link type="text/css" rel="stylesheet" href="bontour.css">
-    
+        
+        <link type="text/css" rel="stylesheet" href="css/bontour.css">
+        
     </head>
     <body>
         <header>
             <h3>본익투어 비행기 예매</h3>    
         </header>
+        <!-- 네비게이션 바 -->
         <nav style="text-align: center">
             <a href="#">항공권예매</a>
             <a href="#">마이페이지</a>
@@ -15,22 +17,59 @@
             <a href="#">이벤트/새소식</a>
             <a href="#">여행상품</a>
         </nav>
-        <div id="Main_image">
-            <h5>출발지</h5>
-            <form>
-                <select name="airport">
-                   <option value="1" selected>김포공항</option>
-                   <option value="2">인천공항</option>
-                   <option value="3">제주공항</option>
-                   <option value="4">김해공항</option>
-                </select>
-            </form>
-            <form style="float:left; margin-left:50px;">
-                <select name="goback">
-                    <option value="1" selected>왕복</option>
-                    <option value="2">편도</option>
-                </select>
-            </form>
-        </div>
+        <!-- 메인 섹션 -->
+        <div id="Box_A"><!-- 제일 큰 div -->
+            <img src="img/air.jpg">
+            
+            <div id="Box_A_1"><!-- 정보입력창 -->
+                <div id="Box_A_2"><!--국내선 국제선-->
+                    <a href="#">국내선</a>
+                    <a href="#">국제선</a>
+                </div>
+                <div id="Box_A_3"><!--왕복 편도-->
+                    <form>
+                        <input type="radio" value="1" name="howgo" checked>왕복
+                        <input type="radio" value="2" name="howgo">편도 
+                    </form>
+                </div>
+                <div id="Box_A_4"><!--출발지 도착지-->
+                    <div>
+                        <h4>출발지</h4>
+                        <form>
+                            <select name="airport">
+                                <option value="1" selected>김포공항</option>
+                                <option value="2">인천공항</option>
+                                <option value="3">제주공항</option>
+                                <option value="4">김해공항</option>
+                            </select>
+                        </form>
+                    </div>
+                    <div>
+                        <h4>도착지</h4>
+                         <form>
+                            <select name="airport">
+                                <option value="1" selected>김포공항</option>
+                                <option value="2">인천공항</option>
+                                <option value="3">제주공항</option>
+                                <option value="4">김해공항</option>
+                            </select>
+                        </form>
+                    </div>
+                </div>
+
+                <div id="Box_A_5">
+                    <label for="date">가는날</label><input type="date" id="date" style="width:330px"/>
+                    <label for="date">오는날</label><input type="date" id="date" style="width:330px"/>
+                </div>
+               <button>항공권 검색</button>
+            </div><!-- 정보입력창 -->
+        </div><!-- 제일 큰 /div 끝 -->
+        <footer><!-- 바텀 -->
+            <p>
+                본익투어㈜ 대표이사 구본익 서울특별시 노원구 동일로 214길 32 한국성서대학교<br>
+                이메일 문의 kbi960130@bible.ac.kr<br>
+                Copyright 2018 by Dev_Koo<br>
+            </p>
+        </footer><!-- 바텀 -->
     </body>
 </html>
