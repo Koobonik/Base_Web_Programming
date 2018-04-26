@@ -4,7 +4,8 @@
     <body>
         <h3>로그인 폼</h3>
         <hr>
-        <form nave="fo"   method="get">
+        <!-- ID 나 Password 같은 민감한 정보는 get 보다는 post 를 쓰는 것이 보안적으로 더 좋음 -->
+        <form nave="fo"   method="post">
             사용자 ID : <input type="text" size="15" value=""><br>
             비밀번호 : <input type="password" size="15" value="">
             <input type="submit" value="완료">
