@@ -2,44 +2,49 @@
 <html>
     <head><title>웹 과제</title>
         <style>
-            @keyframes img{
-                from{
-                    font-size: 500%;
-                    image-orientation:inherit;
-                }
-                to{
-                    font-size: 100%;
-                    text-align: center;
-                }
+            @keyframes bomb{
+                from{font-size: 500%;}
+                to{font-size: 100%;}
                 0%{color: red;}
                 50%{color: blue;}
                 100%{color: black;}
-            }
-            @keyframes scale{
-                0%{
-                    transform: scale(0);
-                    animation-timing-function: ease-out;
+             }
+            @keyframes speed{
+                from{
+                    transform: translateY(300px);
                 }
-                25%{
-                    transform: scale(1);
-                    animation-timing-function: ease-out;
-                }
-                50%{
-                    transform: scale(0.5);
-                    animation-timing-function: ease-out;
-                }
-                75%{
-                    transform: scale(2);
-                    animation-timing-function: ease-out;
-                }
-                100%{
-                    transform: scale(0);
+                to{
+                    transform: translateX(0px);
                 }
             }
+            @keyframes speed2{
+                from{
+                    transform: translateY(600px);
+                }
+                to{
+                    transform: translateX(00px);
+                }
+            }
+            @keyframes speed3{
+                from{
+                    transform: translateX(800px);
+                }
+                to{
+                    transform: translateX(0px);
+                }
+            }
+            @keyframes speed4{
+                from{
+                    transform: translateX(1100px);
+                }
+                to{
+                    transform: translateX(0px);
+                }
+            }
+            
             h3{
                 animation-name: bomb;
-                animation-duration: 3s;
-                animation-iteration-count: infinite;
+                animation-duration: 2s;
             }
         div{
             position: absolute;
@@ -48,16 +53,26 @@
             position: absolute;
         }
         #spadeA{
+            animation-name: speed;
+            animation-duration: 2s;
             z-index: -3; left:10px; top:20px;
-            animation-timing-function: ease;
+            transform: translate(0px);
         }
         #spade2{
+            animation-name: speed2;
+            animation-duration: 2s;
             z-index: 2; left:40px; top:30px;
         }
         #spade3{
+            animation-name: speed3;
+            animation-duration: 2s;
             z-index: 3; left:80px; top:40px;
         }
-        #spade7{z-index: 7; left:120px; top:50px;}
+        #spade7{
+            animation-name: speed4;
+            animation-duration: 2s;
+            z-index: 7; left:120px; top:50px;
+        }
         </style>
     </head>
     <body>
