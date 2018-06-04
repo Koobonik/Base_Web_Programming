@@ -1,0 +1,1 @@
+var left_chance = 3; // 남은 기회
