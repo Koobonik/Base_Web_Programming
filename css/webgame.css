@@ -6,10 +6,17 @@ body{
     background-color: green;
 		}
 #Status_box{
-	background-color : pink;
+	background-color : green;
 	float : left;
-	margin-left : 5px;
-	padding : 20px 20px;
-	text-align : center;
+	margin-top : 5px;
+	margin-bottom: 5px;
+	padding : 0px 5px;
+	text-align : left;
 }
-
+#in_box{
+	background-color: pink;
+	font-size: 20px;
+	margin : 5px;
+	padding : 2px 1px;
+	text-align : left;
+}
