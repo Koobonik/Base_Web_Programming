@@ -21,6 +21,14 @@ body{
 	padding : 2px 1px;
 	text-align : left;
 }
+#Gamestart_box{
+	background-color: pink;
+	text-align: center;
+	font-size: 20px;
+	margin : 5px;
+	padding : 2px 1px;
+	text-align : left;
+}
 #Game_box{
 	background-image: url('img/river.jpg');
 }
