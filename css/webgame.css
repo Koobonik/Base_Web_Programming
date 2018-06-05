@@ -3,10 +3,11 @@ h3{
     font-size: 30px;
 }
 body{
-    background-color: green;
+	background-color: goldenrod;
+	background-image : url();
 		}
 #Status_box{
-	background-color : green;
+	background-color : yellow;
 	float : left;
 	margin-top : 5px;
 	margin-bottom: 5px;
@@ -19,4 +20,7 @@ body{
 	margin : 5px;
 	padding : 2px 1px;
 	text-align : left;
+}
+#Game_box{
+	background-image: url('img/river.jpg');
 }
