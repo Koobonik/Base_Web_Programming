@@ -8,40 +8,68 @@
 		<script src="js/game.js"></script>
     </head>
 	<body>
-        <h3>숨어 있는 강아지 찾기</h3>
+        <h3>계란 찾기 게임</h3>
         <hr>
 	<!-- 박스 네개를 넣을건데 상태 박스임 -->
 	<div id="Status_box">
 		<!-- 게임시작 박스 -->
-		<div id="Gamestart_box" onclick="Game_start">
+		<div id="Gamestart_box" onclick="Game_start()">
 			<h5>게임시작</h5>
 		</div>
 
 		<!-- 남은수 박스 -->
-		<div id="in_box">
+		<div id="Left_box">
 			<h5>남은 수 : 3</h5>
 		</div>
 
 		<!-- 실패수 -->
-		<div id="in_box">
+		<div id="Fail_box">
 			<h5>실패 수 : 0</h5>
 		</div>
 		
 		<!-- 남은시간 -->
-		<div id="in_box">
+		<div id="Left_time_box">
 			<h5>남은 시간 : 15초</h5>
 
 		</div>
 		<!-- 메시지 박스 -->
-		<div id="in_box">
+		<div id="Message_box">
 			<h5>게임이 진행될 예정입니다.</h5>
 		</div>
 
 
 
 	</div><!-- Status_box의 div-->
+	
 	<div id=Game_box style="opacity: 0.9">
-		<img src="img/river.jpg" width="800px" height="450">
+		<img id="egg1" src="img/egg.jpg" onclick="eggClick(this.id)">
+		<img id="egg2" src="img/egg.jpg" onclick="eggClick(this.id)">
+		<img id="egg3" src="img/egg.jpg" onclick="eggClick(this.id)">
+		<img id="egg4" src="img/egg.jpg" onclick="eggClick(this.id)">
+		<img id="egg5" src="img/egg.jpg" onclick="eggClick(this.id)">
+		<img id="egg6" src="img/egg.jpg" onclick="eggClick(this.id)">
+		<img id="egg7" src="img/egg.jpg" onclick="eggClick(this.id)">
+		<img id="egg8" src="img/egg.jpg" onclick="eggClick(this.id)">
 	</div>
+	<div id=Game_box style="opacity: 0.9">
+		<img id="egg9" src="img/egg.jpg" onclick="eggClick(this.id)">
+		<img id="egg10" src="img/egg.jpg" onclick="eggClick(this.id)">
+		<img id="egg11" src="img/egg.jpg" onclick="eggClick(this.id)">
+		<img id="egg12" src="img/egg.jpg" onclick="eggClick(this.id)">
+		<img id="egg13" src="img/egg.jpg" onclick="eggClick(this.id)">
+		<img id="egg14" src="img/egg.jpg" onclick="eggClick(this.id)">
+		<img id="egg15" src="img/egg.jpg" onclick="eggClick(this.id)">
+		<img id="egg16" src="img/egg.jpg" onclick="eggClick(this.id)">
+	</div>
+	<div id=Game_box style="opacity: 0.9">
+		<img id="egg17" src="img/egg.jpg" onclick="eggClick(this.id)">
+		<img id="egg18" src="img/egg.jpg" onclick="eggClick(this.id)">
+		<img id="egg19" src="img/egg.jpg" onclick="eggClick(this.id)">
+		<img id="egg20" src="img/egg.jpg" onclick="eggClick(this.id)">
+		<img id="egg21" src="img/egg.jpg" onclick="eggClick(this.id)">
+		<img id="egg22" src="img/egg.jpg" onclick="eggClick(this.id)">
+		<img id="egg23" src="img/egg.jpg" onclick="eggClick(this.id)">
+		<img id="egg24" src="img/egg.jpg" onclick="eggClick(this.id)">
+		</div>
     </body>
 </html>

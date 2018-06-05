@@ -27,8 +27,15 @@ body{
 	font-size: 20px;
 	margin : 5px;
 	padding : 2px 1px;
+}
+#Left_box, #Fail_box, #Left_time_box, #Message_box{
+	background-color: pink;
+	font-size: 20px;
+	margin : 5px;
+	padding : 2px 1px;
 	text-align : left;
+
 }
 #Game_box{
-	background-image: url('img/river.jpg');
+	padding-left: 230px;
 }
