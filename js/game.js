@@ -10,11 +10,6 @@
  * 랜덤으로 웃, 우, 화 계란을 찾으라고 지정해주는 함수
  * 
  */
-let Game = new object();// 
-Game.Left_chance = 3; // 남은 기회
-Game.Fail_number = 0; // 실패수
-Game.Left_time = 15; // 남은시간
-
 
 let Egg = new Image();
 Egg.src = "img/egg.jpg";
@@ -30,6 +25,7 @@ Engry_egg.src = "img/engry_egg.jpg";
 
 function Game_start(){ // 게임 시작 전체적인 프로그램 흐름 제어 역할
     Reset_variable(); // 변수 초기화
+
 }
 
 function Left_num(){ // 남은 수 처리 
@@ -43,11 +39,10 @@ function Time(){ // 남은 시간 계산
 
 function Reset_variable(){ //게임 시작시 변수 초기화
     alert("리셋 시작");
-    let Game = new object();// 
-    Game.Left_chance = 3; // 남은 기회
-    Game.Fail_number = 0; // 실패수
-    Game.Left_time = 15; // 남은시간
-    alert("리셋 끝");
+    let last_num = 6; // 찾아야 하는 계란 수
+    let fail_num = 0; // 실패수는 당연히 0
+    let last_time = 15; // 초기에 15초 줄 예정
+    alert(fail_num);
 }
 
 function eggClick(egg){ // 클릭시 이벤트
