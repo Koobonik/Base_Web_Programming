@@ -3,7 +3,7 @@
     <head>
 	<!-- 언어 인코딩 -->
 	<meta charset="utf-8">
-        <title></title>
+        <title>같은 표정 계란 찾기</title>
 		<link type="text/css" rel="stylesheet" href="css/webgame.css">
 		<script src="js/game.js"></script>
     </head>
@@ -11,15 +11,16 @@
         <h3>계란 찾기 게임</h3>
         <hr>
 	<!-- 박스 네개를 넣을건데 상태 박스임 -->
+	<h5 onclick="Game_start(null)">게임시작</h5>
 	<div id="Status_box">
 		<!-- 게임시작 박스 -->
-		<div id="Gamestart_box" onclick="Game_start()">
-			<h5>게임시작</h5>
+		<div id="Gamestart_box" onclick="eggClick(this.id)">
+			<h5 onclick="eggClick(null)">게임시작</h5>
 		</div>
 
 		<!-- 남은수 박스 -->
 		<div id="Left_box">
-			<h5>남은 수 : 3</h5>
+			<h5 onclick="eggClick(null)">남은 수 : 3</h5>
 		</div>
 
 		<!-- 실패수 -->
@@ -70,6 +71,6 @@
 		<img id="egg22" src="img/egg.jpg" onclick="eggClick(this.id)">
 		<img id="egg23" src="img/egg.jpg" onclick="eggClick(this.id)">
 		<img id="egg24" src="img/egg.jpg" onclick="eggClick(this.id)">
-		</div>
+	</div>
     </body>
 </html>

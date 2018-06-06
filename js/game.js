@@ -30,7 +30,6 @@ Engry_egg.src = "img/engry_egg.jpg";
 
 function Game_start(){ // 게임 시작 전체적인 프로그램 흐름 제어 역할
     Reset_variable(); // 변수 초기화
-    document.write("sadasd");
 }
 
 function Left_num(){ // 남은 수 처리 
@@ -43,11 +42,14 @@ function Time(){ // 남은 시간 계산
 }
 
 function Reset_variable(){ //게임 시작시 변수 초기화
+    alert("리셋 시작");
+    let Game = new object();// 
     Game.Left_chance = 3; // 남은 기회
     Game.Fail_number = 0; // 실패수
     Game.Left_time = 15; // 남은시간
+    alert("리셋 끝");
 }
 
 function eggClick(egg){ // 클릭시 이벤트
-    
+    alert("출력조차 안됨");
 }
