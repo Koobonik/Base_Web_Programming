@@ -67,25 +67,19 @@ function Random_spray(){ // 계란을 랜덤하게 뿌려줄 함수
     let egg_id =[24]; // egg 아이디 배열 생성
     for (i = 0 ; i<25; i++)
     {
-        egg_id[i] = ranGenerator(24, 1); // 1 ~ 24 까지 랜덤하게 뿌려주기
-        for (j = 0; j < i; j++)
+        egg_id[i] = ranGenerator(24, 1) // 1 ~ 24 까지 랜덤하게 뿌려주기
+        for (j = 0; j <= i; j++)
         {
-            if(egg_id[i] == egg_id[j]) // 중복 방지
-                i = i - 1;
-                break;
+            if(egg_id[i] == egg_id[j]){ // 중복 방지
+                egg_id[i] = ranGenerator(24,1);
+            }
+
         }
     }
-    var i =0;
-    while(true){
-        alert(egg_id[i]);
-        i++;
-        if(i>25)
-        break;
-    }
-
-
-    alert("작동 끝");
+    for(c= 0; c<25; c++)
+    alert(egg_id[c]);
 }
+
 function ranGenerator(max, min){ // 최대 최소 수치 설정
     return Math.floor((Math.random() * max) + min);
 }
