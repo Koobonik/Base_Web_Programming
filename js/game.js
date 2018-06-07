@@ -12,16 +12,16 @@
  */
 
 let Egg = new Image();
-Egg.src = "img/egg.jpg";
+Egg.src = "../img/egg.jpg";
 
 let Laugh_egg = new Image(); // 웃는 계란
-Lauth_egg.src = "img/laugh_egg.jpg";
+Lauth_egg.src = "../img/laugh_egg.jpg";
 
 let Cry_egg = new Image(); // 우는 계란
-Cry_egg.src = "img/cry_egg.jpg";
+Cry_egg.src = "../img/cry_egg.jpg";
 
 let Engry_egg = new Image(); // 화내는 계란
-Engry_egg.src = "img/engry_egg.jpg";
+Engry_egg.src = "../img/engry_egg.jpg";
 
 function Game_start(){ // 게임 시작 전체적인 프로그램 흐름 제어 역할
     Reset_variable(); // 변수 초기화
@@ -63,21 +63,19 @@ function eggClick(egg){ // 클릭시 이벤트
 
 function Random_spray(){ // 계란을 랜덤하게 뿌려줄 함수
     alert("랜덤 스프레이 작동 시작");
-
-    let egg_id =[24]; // egg 아이디 배열 생성
+    let egg_id = new Array(24); // egg 아이디 배열 생성
     for (i = 0 ; i<25; i++)
     {
+        document.getElementById("egg1").innerHTML="hello";
         egg_id[i] = ranGenerator(24, 1) // 1 ~ 24 까지 랜덤하게 뿌려주기
         for (j = 0; j <= i; j++)
         {
-            if(egg_id[i] == egg_id[j]){ // 중복 방지
-                egg_id[i] = ranGenerator(24,1);
+        if(egg_id[i] == egg_id[j]){ // 중복 방지
+            egg_id[i] = egg_id[i] -1;
             }
-
         }
     }
-    for(c= 0; c<25; c++)
-    alert(egg_id[c]);
+    document.getElementById("Game_box").innerHTML="hello";
 }
 
 function ranGenerator(max, min){ // 최대 최소 수치 설정
