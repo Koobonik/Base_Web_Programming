@@ -67,7 +67,7 @@ function Random_spray(){ // 계란을 랜덤하게 뿌려줄 함수
     for (i = 0 ; i<25; i++)
     {
         document.getElementById("egg1").innerHTML="heo";
-        egg_id[i] = ranGenerator(24, 1) // 1 ~ 24 까지 랜덤하게 뿌려주기
+        egg_id[i] = ranGenerator(24, 1); // 1 ~ 24 까지 랜덤하게 뿌려주기
         for (j = 0; j <= i; j++)
         {
         if(egg_id[i] == egg_id[j]){ // 중복 방지
