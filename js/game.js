@@ -66,7 +66,7 @@ function Random_spray(){ // 계란을 랜덤하게 뿌려줄 함수
     let egg_id = new Array(24); // egg 아이디 배열 생성
     for (i = 0 ; i<25; i++)
     {
-        document.getElementById("egg1").innerHTML="hello";
+        document.getElementById("egg1").innerHTML="heo";
         egg_id[i] = ranGenerator(24, 1) // 1 ~ 24 까지 랜덤하게 뿌려주기
         for (j = 0; j <= i; j++)
         {
@@ -75,7 +75,7 @@ function Random_spray(){ // 계란을 랜덤하게 뿌려줄 함수
             }
         }
     }
-    document.getElementById("Game_box").innerHTML="hello";
+    document.getElementById("Game_box").innerHTML="<img src=img/cry_egg.jpg>";
 }
 
 function ranGenerator(max, min){ // 최대 최소 수치 설정
