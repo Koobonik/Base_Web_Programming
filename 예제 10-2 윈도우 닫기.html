@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <head>
+	<!-- 언어 인코딩 -->
+	<meta charset="utf-8">
+        <title>윈도우 닫기</title>
+        <script>
+            var newWin = null;
+            function load(URL){
+                newWin = window.open(URL, "myWin", "left =300, top=300, width=400,height=300");
+            }
+            function closeNewWindow(){
+                if(newWin == null || newWin.closed)
+                    return ;
+                else 
+                    newWin.Close();
+            }
+        </script>
+    </head>
+	<body>
+        <h3>window의 close()로 윈도우 닫기</h3>
+        <hr>
+        <a href="javascript:load('https://www.naver.com')">새 윈도우 열기(네이버)</a><br>
+        <a href="javascript:window.close()">현재 윈도우 닫기</a><br>
+        <a href="javascript:closeNewWindow()">새 윈도우 닫기</a><br>
+	
+    </body>
+</html>
