@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+	<!-- 언어 인코딩 -->
+	<meta charset="utf-8">
+        <title>onbeforeprint 와 onafterprint</title>
+        <style>
+            #logoDiv{
+                display: none;
+                position: absolute; left:0, top:0;
+                width: 100%; height: 100%;
+            }
+        </style>
+        <script>
+                window.onbeforeprint = function(e){
+                    logoDiv = document.getElementById("logoDiv");
+                    logoDiv.style.display = "block";//block으로 변경
+                }
+                window.onafterprint = hideLogo;
+                function hideLogo(){
+                    logoDiv = document.getElementById("logoDiv");
+                    logoDiv.style.display = "none";//<div> 영역이 보이지 않게함
+                    logoDiv.style.zindex = -1;//이미지를 문서의 맨 바닥으로 배치
+                }
+            </script>
+    </head>
+	<body>
+        <h3>onbeforeprint 와 onafterprint 이벤트 예</h3>
+        <hr>
+        <div id="logoDiv">
+            <img src="img/river.jpg" alt="이미지 없습니다.">
+        </div>
+        <p>안녕하세요</p>
+        
+    </body>
+</html>
