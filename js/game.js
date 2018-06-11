@@ -65,7 +65,7 @@ function Random_spray(){ // 계란을 랜덤하게 뿌려줄 함수
     alert("랜덤 스프레이 작동 시작");
     var image = document.getElementById("egg"+"2");
     image.src = "img/cry_egg.jpg";
-
+    let egg_id = new Array();
     for (i = 0 ; i<8; i++)
     {
         document.getElementById("egg1").innerHTML="heo";
@@ -76,6 +76,11 @@ function Random_spray(){ // 계란을 랜덤하게 뿌려줄 함수
             egg_id[i] = egg_id[i] -1;
             }
         }
+    }
+    for (q=0; q<8; q++)
+    {
+        var image2 = document.getElementById("egg"+egg_id[q]);
+        image2.src = "img/engry_egg.jpg";
     }
 
 	alert("랜덤 스프레이 작동 중지");
