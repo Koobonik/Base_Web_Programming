@@ -11,18 +11,6 @@
  * 
  */ 
 
-let Egg = new Image();
-Egg.src = "../img/egg.jpg";
-
-let Laugh_egg = new Image(); // 웃는 계란
-Lauth_egg.src = "../img/laugh_egg.jpg";
-
-let Cry_egg = new Image(); // 우는 계란
-Cry_egg.src = "../img/cry_egg.jpg";
-
-let Engry_egg = new Image(); // 화내는 계란
-Engry_egg.src = "../img/engry_egg.jpg";
-
 function Game_start(){ // 게임 시작 전체적인 프로그램 흐름 제어 역할
     Reset_variable(); // 변수 초기화
     Can_see_time(5);
@@ -40,7 +28,7 @@ function Reset_variable(){ //게임 시작시 변수 초기화
     Reset_image();
     let last_num = 6; // 찾아야 하는 계란 수
     let fail_num = 0; // 실패수는 당연히 0
-    let last_time = 15; // 초기에 15초 줄 예정
+    let last_time = 20; // 초기에 15초 줄 예정
     let game_status = true; // 게임 진행 유무 true or false
     Time(last_time); // 시간 초기화
     alert("리셋 끝");
@@ -78,9 +66,9 @@ function Reset_image(){
 
 function Random_spray(){ // 계란을 랜덤하게 뿌려줄 함수
     alert("랜덤 스프레이 작동 시작");
-    var image = document.getElementById("egg"+"2");
-    image.src = "img/cry_egg.jpg";
-    let egg_id = new Array();
+    let egg_id = new Array(); // 1 ~ 24 까지 랜덤한 수들이  들어갈 변수
+    let image; // 우는 계란
+    let image2; // 화내는 계란
     for (i = 0 ; i<8; i++)
     {
         egg_id[i] = ranGenerator(24, 1); // 1 ~ 24 까지 랜덤하게 뿌려주기
@@ -93,8 +81,21 @@ function Random_spray(){ // 계란을 랜덤하게 뿌려줄 함수
     }
     for (q=0; q<8; q++)
     {
-        var image2 = document.getElementById("egg"+egg_id[q]);
+        image2 = document.getElementById("egg"+egg_id[q]);
         image2.src = "img/engry_egg.jpg";
+    }
+    for(e=0; e<24; e++)//여기 수정해라 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+    {
+        if(egg_id[e] != image2.src)//화내는계란이랑 같다면
+        {
+            image = document.getElementById("egg"+e);
+            image.src = "img/cry_egg.jpg";
+        }
+        else
+        {
+            image = document.getElementById("egg"+e);
+            image.src = "img/cry_egg.jpg";
+        }
     }
 
 	alert("랜덤 스프레이 작동 중지");
