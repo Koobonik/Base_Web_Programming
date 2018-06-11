@@ -25,12 +25,19 @@ Engry_egg.src = "../img/engry_egg.jpg";
 
 function Game_start(){ // 게임 시작 전체적인 프로그램 흐름 제어 역할
     Reset_variable(); // 변수 초기화
+    Can_see_time(5);
     Random_spray();
 
 }
 
+function Can_see_time(can_see_time){ //볼 수 있는 시간
+    document.getElementById("Message_box").innerHTML="<h5>빨리 계란을 보세요!!</h5>";
+    Time(can_see_time); // 인자값 만큼 기다려줌
+}
+
 function Reset_variable(){ //게임 시작시 변수 초기화
     alert("리셋 시작");
+    Reset_image();
     let last_num = 6; // 찾아야 하는 계란 수
     let fail_num = 0; // 실패수는 당연히 0
     let last_time = 15; // 초기에 15초 줄 예정
@@ -38,6 +45,7 @@ function Reset_variable(){ //게임 시작시 변수 초기화
     Time(last_time); // 시간 초기화
     alert("리셋 끝");
 }
+
 
 function Time(last_time){ // 남은 시간 계산
     let game_stop = setInterval(Out_put_time, 1000); // 1초마다 실행
@@ -61,6 +69,13 @@ function eggClick(egg){ // 클릭시 이벤트
     alert("출력조차 안됨");
 }
 
+function Reset_image(){
+    for(i=0; i<24; i++){
+        let image3 = document.getElementById("egg"+(i+1));
+        image3.src = "img/egg.jpg";
+    }
+}
+
 function Random_spray(){ // 계란을 랜덤하게 뿌려줄 함수
     alert("랜덤 스프레이 작동 시작");
     var image = document.getElementById("egg"+"2");
@@ -68,12 +83,11 @@ function Random_spray(){ // 계란을 랜덤하게 뿌려줄 함수
     let egg_id = new Array();
     for (i = 0 ; i<8; i++)
     {
-        document.getElementById("egg1").innerHTML="heo";
-        egg_id[i] = ranGenerator(24, 1) // 1 ~ 24 까지 랜덤하게 뿌려주기
+        egg_id[i] = ranGenerator(24, 1); // 1 ~ 24 까지 랜덤하게 뿌려주기
         for (j = 0; j <= i; j++)
         {
         if(egg_id[i] == egg_id[j]){ // 중복 방지
-            egg_id[i] = egg_id[i] -1;
+            egg_id[i] = ranGenerator(24, 1);
             }
         }
     }
