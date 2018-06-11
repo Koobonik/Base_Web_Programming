@@ -9,7 +9,7 @@
  * 웃는 계란 + 우는 계란 + 화내는 계란
  * 랜덤으로 웃, 우, 화 계란을 찾으라고 지정해주는 함수
  * 
- */
+ */ 
 
 let Egg = new Image();
 Egg.src = "../img/egg.jpg";
@@ -63,7 +63,21 @@ function eggClick(egg){ // 클릭시 이벤트
 
 function Random_spray(){ // 계란을 랜덤하게 뿌려줄 함수
     alert("랜덤 스프레이 작동 시작");
-	document.getElementById("egg1").innerHTML="<img src=cry_egg.jpg>";
+    var image = document.getElementById("egg"+"2");
+    image.src = "img/cry_egg.jpg";
+
+    for (i = 0 ; i<8; i++)
+    {
+        document.getElementById("egg1").innerHTML="heo";
+        egg_id[i] = ranGenerator(24, 1) // 1 ~ 24 까지 랜덤하게 뿌려주기
+        for (j = 0; j <= i; j++)
+        {
+        if(egg_id[i] == egg_id[j]){ // 중복 방지
+            egg_id[i] = egg_id[i] -1;
+            }
+        }
+    }
+
 	alert("랜덤 스프레이 작동 중지");
 }
 
