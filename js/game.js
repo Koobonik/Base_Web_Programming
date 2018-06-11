@@ -63,7 +63,7 @@ function eggClick(egg){ // 클릭시 이벤트
 
 function Random_spray(){ // 계란을 랜덤하게 뿌려줄 함수
     alert("랜덤 스프레이 작동 시작");
-	document.getElementById("egg1").innerHTML="asd";
+	document.getElementById("egg1").innerHTML="<img src=cry_egg.jpg>";
 	alert("랜덤 스프레이 작동 중지");
 }
 
