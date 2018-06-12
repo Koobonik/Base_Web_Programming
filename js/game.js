@@ -60,7 +60,7 @@ function eggClick(egg){ // 클릭시 이벤트
 function Reset_image(){
     for(i=0; i<24; i++){
         let image3 = document.getElementById("egg"+(i+1));
-        image3.src = "img/egg.jpg";
+        image3.src = "img/cry_egg.jpg";
     }
 }
 
@@ -69,35 +69,22 @@ function Random_spray(){ // 계란을 랜덤하게 뿌려줄 함수
     let egg_id = new Array(); // 1 ~ 24 까지 랜덤한 수들이  들어갈 변수
     let image; // 우는 계란
     let image2; // 화내는 계란
-    for (i = 0 ; i<8; i++)
+    for (i = 0 ; i<24; i++)
     {
         egg_id[i] = ranGenerator(24, 1); // 1 ~ 24 까지 랜덤하게 뿌려주기
-        for (j = 0; j <= i; j++)
+        for (j = 0; j < 8; j++)
         {
         if(egg_id[i] == egg_id[j]){ // 중복 방지
             egg_id[i] = ranGenerator(24, 1);
             }
         }
     }
-    for (q=0; q<8; q++)
+    for (q=0; q < 8; q++) // 웃는 계란 랜덤 배치
     {
         image2 = document.getElementById("egg"+egg_id[q]);
-        image2.src = "img/engry_egg.jpg";
+        image2.src = "img/laugh_egg.jpg";
     }
-    for(e=0; e<24; e++)//여기 수정해라 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-    {
-        if(egg_id[e] != image2.src)//화내는계란이랑 같다면
-        {
-            image = document.getElementById("egg"+e);
-            image.src = "img/cry_egg.jpg";
-        }
-        else
-        {
-            image = document.getElementById("egg"+e);
-            image.src = "img/cry_egg.jpg";
-        }
-    }
-
+    
 	alert("랜덤 스프레이 작동 중지");
 }
 
