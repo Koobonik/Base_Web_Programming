@@ -22,6 +22,8 @@ let game_status = false; // 게임 진행 유무 true or false
 
 
 function Game_start(){ // 게임 시작 전체적인 프로그램 흐름 제어 역할
+    var audio = new Audio('audio/game_start.mp3');
+    audio.play();
     Reset_variable(); // 변수 초기화
     last_num = 6; // 찾아야 하는 계란 수
     fail_num = 0; // 실패수는 당연히 0
@@ -69,6 +71,11 @@ function Time2(last_time, game_time){ // 게임 시작 전 남은 시간을 보�
     let game_stop = setInterval(Out_put_time, 1000); // 1초마다 실행
     function Out_put_time(){ // 남은 시간 계속해서 출력
         last_time--;
+        if(last_time == 5){
+            var audio = new Audio('audio/tictok.mp3'); //오디오 재생 코드
+            audio.play();
+        }
+        
         if(last_time <= 0){ // 남은시간 0초이면 동작
             document.getElementById("Left_time_box").innerHTML="<h5>남은 시간 : 0 초 </h5>";
             clearInterval(game_stop); // 반복문 종료
@@ -120,10 +127,13 @@ function Game_clear(){ // 게임 클리어시
 function Game_over(){ // 게임 오버가 된다면 못찾은 계란을 띄워줌
     for(k=0; k<24; k++){
         if(k == egg_id[k]){
-            let image2 = document.getElementById("egg"+(k+1)); 
+            let image2 = document.getElementById("egg"+(egg_id[k])); 
             image2.src = "img/laugh_egg.jpg";
         }
-        
+        else{
+            let image2 = document.getElementById("egg"+(k+1)); 
+            image2.src = "img/game_over.png";
+        }
         document.getElementById("Message_box").innerHTML="<h5>게임 오버</h5>";
     }
 }
@@ -164,11 +174,15 @@ function eggClick(egg){ // egg id 인 egg1 egg2 egg3 ...egg24  같은 것 클릭
     if( egg == "egg"+(egg_id[0]) || egg == "egg"+(egg_id[1]) || egg == "egg"+(egg_id[2]) || egg == "egg"+(egg_id[3]) || egg == "egg"+(egg_id[4]) || egg == "egg"+(egg_id[5]) || egg == "egg"+(egg_id[6]) || egg == "egg"+(egg_id[7]) ){
         image2 = document.getElementById(egg);
         image2.src = "img/laugh_egg.jpg";
+        var audio = new Audio('audio/answer.ogg'); //오디오 재생 코드
+        audio.play();
         Last_num();
     }
     else{ // 틀렸을 경우
         image2 = document.getElementById(egg);
         image2.src = "img/cry_egg.jpg";
+        var audio = new Audio('audio/fail.ogg');
+        audio.play();
         Fail_num();
         
     }
