@@ -14,21 +14,21 @@
 
 let egg_id = new Array(); // 1 ~ 24 까지 랜덤한 수들이  들어갈 변수
 let answer_egg_id = new Array();//정답을 받아올 변수
-let last_num = 7; // 찾아야 하는 계란 수
+let last_num =6; // 찾아야 하는 계란 수
 let fail_num = 0; // 실패수는 당연히 0
-let last_time = 15; // 초기에 15초 줄 예정
-let game_time = 5; // 볼 수 있는 시간
+let last_time = 20; // 초기에 20초 줄 예정
+let game_time = 10; // 볼 수 있는 시간
 let game_status = false; // 게임 진행 유무 true or false
 
 
 function Game_start(){ // 게임 시작 전체적인 프로그램 흐름 제어 역할
     Reset_variable(); // 변수 초기화
-    last_num = 7; // 찾아야 하는 계란 수
+    last_num = 6; // 찾아야 하는 계란 수
     fail_num = 0; // 실패수는 당연히 0
-    last_time = 15; // 초기에 15초 줄 예정
-    game_time = 5; // 볼 수 있는 시간
+    last_time = 20; // 초기에 20초 줄 예정
+    game_time = 10; // 볼 수 있는 시간
     game_status = true; // 게임 진행 유무 true or false
-    Can_see_time(5, 15); // 시작전 보는 시간과 게임중 남은 시간 인자
+    Can_see_time(game_time, last_time); // 시작전 보는 시간과 게임중 남은 시간 인자
     Random_spray();
 }
 
@@ -93,13 +93,12 @@ function Change_normal_egg(){ // 평범한 계란으로 바꾸어 주는 함수
 }
 
 function Last_num(){ // 남은 계란 수 처리 
-    Left_chance = Left_chance - 1;
-    document.getElementById("Left_time_box").innerHTML="<h5>남은 수 : " + Left_chance + " </h5>";
-    if(Left_chance == 0){
-
+    last_num--;
+    document.getElementById("Left_box").innerHTML="<h5>남은 수 : " + last_num + " </h5>";
+    if(last_num == 0){
+        Game_clear();
+        game_status = false;
     }
-
-    return Left_chance ;
 }
 
 function Fail_num(){ // 실패 수 처리 
@@ -114,22 +113,17 @@ function Fail_num(){ // 실패 수 처리
     return Left_chance ;
 }
 
-function Give_array(q){ // 정답 에그 값을 받아낼 것임
-    for (f=0; f < 8; f++) 
-    {
-        answer_egg_id[f] = Random_spray.egg_id[f];
-        alert(answer_egg_id[f]);
-    }
-}
-
-function Game_Clear(){
-    
+function Game_clear(){ // 게임 클리어시
+    document.getElementById("Message_box").innerHTML="<h5>게임 클리어!!</h5>";
 }
 
 function Game_over(){ // 모든 계란을 게임 오버로 바꾸어줌
-    for(i=0; i<24; i++){
-        let image3 = document.getElementById("egg"+(i+1));
-        image3.src = "img/game_over.png";
+    for(var k=0; k<24; k++){
+        if(k == egg_id[k]){
+            let image2 = document.getElementById("egg"+(k+1)); 
+            image2.src = "img/laugh_egg.jpg";
+        }
+        
         document.getElementById("Message_box").innerHTML="<h5>게임 오버</h5>";
     }
 }
@@ -148,14 +142,14 @@ function Random_spray(){ // 계란을 랜덤하게 뿌려줄 함수
     for (i = 0 ; i<24; i++)
     {
         egg_id[i] = ranGenerator(24, 1); // 1 ~ 24 까지 랜덤하게 뿌려주기
-        for (j = 0; j < 8; j++)
+        for (j = 0; j < last_num; j++)// 게임 난이도 만큼!!
         {
             if(egg_id[i] == egg_id[j]){ // 중복 방지
                 egg_id[i] = ranGenerator(24, 1);
             }
         }
     }
-    for (q=0; q < 8; q++) // 웃는 계란 랜덤 배치
+    for (q=0; q < last_num; q++) // 웃는 계란 랜덤 배치
     {
         image2 = document.getElementById("egg"+egg_id[q]);
         image2.src = "img/laugh_egg.jpg";
@@ -166,13 +160,13 @@ function Random_spray(){ // 계란을 랜덤하게 뿌려줄 함수
 }
 
 function eggClick(egg){ // egg id 인 egg1 egg2 egg3 ...egg24  같은 것 클릭시 이벤트
+    // 정답일경우
     if( egg == "egg"+(egg_id[0]) || egg == "egg"+(egg_id[1]) || egg == "egg"+(egg_id[2]) || egg == "egg"+(egg_id[3]) || egg == "egg"+(egg_id[4]) || egg == "egg"+(egg_id[5]) || egg == "egg"+(egg_id[6]) || egg == "egg"+(egg_id[7]) ){
-        alert("정답입니다.");
         image2 = document.getElementById(egg);
         image2.src = "img/laugh_egg.jpg";
+        Last_num();
     }
-    else{
-        alert("오답입니다.");
+    else{ // 틀렸을 경우
         image2 = document.getElementById(egg);
         image2.src = "img/cry_egg.jpg";
         Fail_num();
