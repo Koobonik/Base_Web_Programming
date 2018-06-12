@@ -117,8 +117,8 @@ function Game_clear(){ // 게임 클리어시
     document.getElementById("Message_box").innerHTML="<h5>게임 클리어!!</h5>";
 }
 
-function Game_over(){ // 모든 계란을 게임 오버로 바꾸어줌
-    for(var k=0; k<24; k++){
+function Game_over(){ // 게임 오버가 된다면 못찾은 계란을 띄워줌
+    for(k=0; k<24; k++){
         if(k == egg_id[k]){
             let image2 = document.getElementById("egg"+(k+1)); 
             image2.src = "img/laugh_egg.jpg";
@@ -142,7 +142,7 @@ function Random_spray(){ // 계란을 랜덤하게 뿌려줄 함수
     for (i = 0 ; i<24; i++)
     {
         egg_id[i] = ranGenerator(24, 1); // 1 ~ 24 까지 랜덤하게 뿌려주기
-        for (j = 0; j < last_num; j++)// 게임 난이도 만큼!!
+        for (j = 0; j < 100; j++)// 게임 난이도 만큼!! 100개 만큼 만들어주니 중복이 없더라
         {
             if(egg_id[i] == egg_id[j]){ // 중복 방지
                 egg_id[i] = ranGenerator(24, 1);
