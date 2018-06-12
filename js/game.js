@@ -22,7 +22,7 @@ let game_status = false; // 게임 진행 유무 true or false
 
 
 function Game_start(){ // 게임 시작 전체적인 프로그램 흐름 제어 역할
-    var audio = new Audio('audio/game_start.mp3');
+    var audio = new Audio('audio/gamestart.mp3');
     audio.play();
     Reset_variable(); // 변수 초기화
     last_num = 6; // 찾아야 하는 계란 수
@@ -121,10 +121,14 @@ function Fail_num(){ // 실패 수 처리
 }
 
 function Game_clear(){ // 게임 클리어시
+    var audio = new Audio('audio/clearsound.mp3'); //오디오 재생 코드
+        audio.play();
     document.getElementById("Message_box").innerHTML="<h5>게임 클리어!!</h5>";
 }
 
 function Game_over(){ // 게임 오버가 된다면 못찾은 계란을 띄워줌
+    var audio = new Audio('audio/gameover.mp3'); //오디오 재생 코드
+        audio.play();
     for(k=0; k<24; k++){
         if(k == egg_id[k]){
             let image2 = document.getElementById("egg"+(egg_id[k])); 
