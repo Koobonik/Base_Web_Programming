@@ -42,9 +42,15 @@ function Time(last_time){ // 게임 시작후 남은 시간 계산
         if(last_time <= 0){ // 남은시간 0초이면 동작
             document.getElementById("Left_time_box").innerHTML="<h5>남은 시간 : 0 초 </h5>";
             clearInterval(game_stop); // 반복문 종료
+            for(i=0; i<24; i++){
+                let image3 = document.getElementById("egg"+(i+1));
+                image3.src = "img/game_over.png";
+                document.getElementById("Message_box").innerHTML="<h5>게임 오버</h5>";
+            }
         }
         else{ // 나머지는 1초마다 계속해서 함수 실행
             document.getElementById("Left_time_box").innerHTML="<h5>남은 시간 : " + last_time+ " 초 </h5>";
+            document.getElementById("Message_box").innerHTML="<h5>맞추세요!!</h5>";
         }
     }
 }
@@ -67,7 +73,7 @@ function Time2(last_time, game_time){ // 게임 시작 전 남은 시간을 보�
 }
 
 function Change_normal_egg(){ // 평범한 계란으로 바꾸어 주는 함수
-    for (var r = 0; r < 24; r++){
+    for (r = 0; r < 24; r++){
         let image = document.getElementById("egg"+(r+1));
         image.src = "img/egg.jpg";
     }
@@ -79,7 +85,7 @@ function Last_num(){ // 남은 수 처리
 }
 
 function eggClick(egg){ // 클릭시 이벤트
-    alert("출력조차 안됨");
+    
 }
 
 function Reset_image(){ // 이미지 리셋 (우는 계란으로 바꾸어 줄 것)

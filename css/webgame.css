@@ -5,7 +5,10 @@ h3{
 body{
 	background-color: goldenrod;
 	background-image : url();
-		}
+}
+#line{
+	padding-left: 225px;
+}
 #Status_box{
 	background-color : yellow;
 	float : left;
@@ -34,8 +37,4 @@ body{
 	margin : 5px;
 	padding : 2px 1px;
 	text-align : left;
-
-}
-#Game_box{
-	padding-left: 230px;
 }
