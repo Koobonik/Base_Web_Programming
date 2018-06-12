@@ -13,29 +13,29 @@
 
 function Game_start(){ // 게임 시작 전체적인 프로그램 흐름 제어 역할
     Reset_variable(); // 변수 초기화
-    Can_see_time(5);
+    Can_see_time(5, 15); // 시작전 보는 시간과 게임중 남은 시간 인자
     Random_spray();
-
-}
-
-function Can_see_time(can_see_time){ //볼 수 있는 시간
-    document.getElementById("Message_box").innerHTML="<h5>빨리 계란을 보세요!!</h5>";
-    Time(can_see_time); // 인자값 만큼 기다려줌
 }
 
 function Reset_variable(){ //게임 시작시 변수 초기화
     alert("리셋 시작");
-    Reset_image();
+    Reset_image(); // 우는 계란으로 다 바꾸어 줄 것임
     let last_num = 6; // 찾아야 하는 계란 수
     let fail_num = 0; // 실패수는 당연히 0
-    let last_time = 20; // 초기에 15초 줄 예정
-    let game_status = true; // 게임 진행 유무 true or false
-    Time(last_time); // 시간 초기화
+    let last_time = 15; // 초기에 15초 줄 예정
+    let game_time = 5; // 볼 수 있는 시간
+    let game_status = false; // 게임 진행 유무 true or false
+    //Time(last_time); // 시간 초기화
     alert("리셋 끝");
 }
 
+function Can_see_time(can_see_time, game_time){ //볼 수 있는 시간
+    document.getElementById("Message_box").innerHTML="<h5>빨리 계란을 보세요!!</h5>";
+    Time2(can_see_time, game_time); // 인자값 만큼 기다려줌
+}
 
-function Time(last_time){ // 남은 시간 계산
+function Time(last_time){ // 게임 시작후 남은 시간 계산
+    Change_normal_egg(); // 모든 계란들을 평범한 계란으로 바꾸어 줄 것임
     let game_stop = setInterval(Out_put_time, 1000); // 1초마다 실행
     function Out_put_time(){ // 남은 시간 계속해서 출력
         last_time--;
@@ -48,6 +48,31 @@ function Time(last_time){ // 남은 시간 계산
         }
     }
 }
+
+function Time2(last_time, game_time){ // 게임 시작 전 남은 시간을 보여주는 함수 게임의 status를 true로 해주는 것이 포인트!
+    let game_stop = setInterval(Out_put_time, 1000); // 1초마다 실행
+    function Out_put_time(){ // 남은 시간 계속해서 출력
+        last_time--;
+        if(last_time <= 0){ // 남은시간 0초이면 동작
+            document.getElementById("Left_time_box").innerHTML="<h5>남은 시간 : 0 초 </h5>";
+            clearInterval(game_stop); // 반복문 종료
+            Reset_variable.game_status = true;
+            Time(game_time);//모든것이 끝나면 이제는 game_time 만큼의 맞출 시간을 준다.
+            
+        }
+        else{ // 나머지는 1초마다 계속해서 함수 실행
+            document.getElementById("Left_time_box").innerHTML="<h5>남은 시간 : " + last_time+ " 초 </h5>";
+        }
+    }
+}
+
+function Change_normal_egg(){ // 평범한 계란으로 바꾸어 주는 함수
+    for (var r = 0; r < 24; r++){
+        let image = document.getElementById("egg"+(r+1));
+        image.src = "img/egg.jpg";
+    }
+}
+
 function Last_num(){ // 남은 수 처리 
     Left_chance = Left_chance - 1;
     return Left_chance ;
@@ -57,7 +82,7 @@ function eggClick(egg){ // 클릭시 이벤트
     alert("출력조차 안됨");
 }
 
-function Reset_image(){
+function Reset_image(){ // 이미지 리셋 (우는 계란으로 바꾸어 줄 것)
     for(i=0; i<24; i++){
         let image3 = document.getElementById("egg"+(i+1));
         image3.src = "img/cry_egg.jpg";
