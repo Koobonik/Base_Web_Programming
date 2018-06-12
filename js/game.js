@@ -11,6 +11,10 @@
  * 
  */ 
 
+
+let egg_id = new Array(); // 1 ~ 24 까지 랜덤한 수들이  들어갈 변수
+let answer_egg_id = new Array();//정답을 받아올 변수
+
 function Game_start(){ // 게임 시작 전체적인 프로그램 흐름 제어 역할
     Reset_variable(); // 변수 초기화
     Can_see_time(5, 15); // 시작전 보는 시간과 게임중 남은 시간 인자
@@ -84,8 +88,13 @@ function Last_num(){ // 남은 수 처리
     return Left_chance ;
 }
 
-function eggClick(egg){ // 클릭시 이벤트
-    
+
+function Give_array(q){ // 정답 에그 값을 받아낼 것임
+    for (f=0; f < 8; f++) // 웃는 계란 랜덤 배치
+    {
+        answer_egg_id[f] = Random_spray.egg_id[f];
+        alert(answer_egg_id[f]);
+    }
 }
 
 function Reset_image(){ // 이미지 리셋 (우는 계란으로 바꾸어 줄 것)
@@ -97,16 +106,15 @@ function Reset_image(){ // 이미지 리셋 (우는 계란으로 바꾸어 줄 �
 
 function Random_spray(){ // 계란을 랜덤하게 뿌려줄 함수
     alert("랜덤 스프레이 작동 시작");
-    let egg_id = new Array(); // 1 ~ 24 까지 랜덤한 수들이  들어갈 변수
     let image; // 우는 계란
-    let image2; // 화내는 계란
+    let image2; // 웃는 계란
     for (i = 0 ; i<24; i++)
     {
         egg_id[i] = ranGenerator(24, 1); // 1 ~ 24 까지 랜덤하게 뿌려주기
         for (j = 0; j < 8; j++)
         {
-        if(egg_id[i] == egg_id[j]){ // 중복 방지
-            egg_id[i] = ranGenerator(24, 1);
+            if(egg_id[i] == egg_id[j]){ // 중복 방지
+                egg_id[i] = ranGenerator(24, 1);
             }
         }
     }
@@ -114,11 +122,26 @@ function Random_spray(){ // 계란을 랜덤하게 뿌려줄 함수
     {
         image2 = document.getElementById("egg"+egg_id[q]);
         image2.src = "img/laugh_egg.jpg";
+        //Give_array(egg_id[q]); // 랜덤한 위치를 저장할 수 있게끔 다른 곳으로 넘겨줄 것임
     }
     
 	alert("랜덤 스프레이 작동 중지");
 }
 
+function eggClick(egg){ // egg id 인 egg1 egg2 egg3 ...egg24  같은 것 클릭시 이벤트
+    for(h=0; h<8; h++){
+        if( egg == "egg"+(egg_id[h]) ){
+            alert("정답입니다.");
+            break;
+        }
+        else if ( egg != "egg"+(egg_id[h]) ){
+            alert("오답입니다.");
+            break;
+        }
+    }
+}
+
 function ranGenerator(max, min){ // 최대 최소 수치 설정
     return Math.floor((Math.random() * max) + min);
 }
+
