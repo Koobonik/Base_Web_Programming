@@ -24,6 +24,7 @@ let game_status = false; // 게임 진행 유무 true or false
 function Game_start(){ // 게임 시작 전체적인 프로그램 흐름 제어 역할
     var audio = new Audio('audio/gamestart.mp3');
     audio.play();
+    game_status = false;
     Reset_variable(); // 변수 초기화
     Remove_game_button();
     Can_see_time(game_time, last_time); // 시작전 보는 시간과 게임중 남은 시간 인자
@@ -163,7 +164,7 @@ function Random_spray(){ // 계란을 랜덤하게 뿌려줄 함수
     for (i = 0 ; i<24; i++)
     {
         egg_id[i] = ranGenerator(24, 1); // 1 ~ 24 까지 랜덤하게 뿌려주기
-        for (j = 0; j < 100; j++)// 게임 난이도 만큼!! 100개 만큼 만들어주니 중복이 없더라
+        for (j = 0; j < i; j++)// 게임 난이도 만큼!! 200개 만큼 만들어주니 중복이 없더라
         {
             if(egg_id[i] == egg_id[j]){ // 중복 방지
                 egg_id[i] = ranGenerator(24, 1);
