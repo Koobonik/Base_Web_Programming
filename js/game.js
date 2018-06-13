@@ -25,11 +25,6 @@ function Game_start(){ // 게임 시작 전체적인 프로그램 흐름 제어 
     var audio = new Audio('audio/gamestart.mp3');
     audio.play();
     Reset_variable(); // 변수 초기화
-    last_num = 6; // 찾아야 하는 계란 수
-    fail_num = 0; // 실패수는 당연히 0
-    last_time = 20; // 초기에 20초 줄 예정
-    game_time = 10; // 볼 수 있는 시간
-    game_status = true; // 게임 진행 유무 true or false
     Remove_game_button();
     Can_see_time(game_time, last_time); // 시작전 보는 시간과 게임중 남은 시간 인자
     Random_spray();
@@ -44,11 +39,13 @@ function Get_game_button(){
 }
 
 function Reset_variable(){ //게임 시작시 변수 초기화
-    alert("리셋 시작");
     Reset_image(); // 우는 계란으로 다 바꾸어 줄 것임
-    
+    last_num = 6; // 찾아야 하는 계란 수
+    fail_num = 0; // 실패수는 당연히 0
+    last_time = 20; // 초기에 20초 줄 예정
+    game_time = 10; // 볼 수 있는 시간
+    game_status = true; // 게임 진행 유무 true or false
     //Time(last_time); // 시간 초기화
-    alert("리셋 끝");
 }
 
 function Can_see_time(can_see_time, game_time){ //볼 수 있는 시간
@@ -133,6 +130,7 @@ function Game_clear(){ // 게임 클리어시
     var audio = new Audio('audio/clearsound.mp3'); //오디오 재생 코드
         audio.play();
     document.getElementById("Message_box").innerHTML="<h5>게임 클리어!!</h5>";
+    Get_game_button();
 }
 
 function Game_over(){ // 게임 오버가 된다면 못찾은 계란을 띄워줌
@@ -144,10 +142,9 @@ function Game_over(){ // 게임 오버가 된다면 못찾은 계란을 띄워�
             image2.src = "img/laugh_egg.jpg";
         }
         else{
-            let image2 = document.getElementById("egg"+(k+1)); 
-            image2.src = "img/game_over.png";
+            let image23 = document.getElementById("egg"+(k+1)); 
+            image23.src = "img/game_over.png";
         }
-        
     }
     Get_game_button();
     document.getElementById("Message_box").innerHTML="<h5>게임 오버</h5>";
@@ -161,7 +158,6 @@ function Reset_image(){ // 이미지 리셋 (우는 계란으로 바꾸어 줄 �
 }
 
 function Random_spray(){ // 계란을 랜덤하게 뿌려줄 함수
-    alert("랜덤 스프레이 작동 시작");
     let image; // 우는 계란
     let image2; // 웃는 계란
     for (i = 0 ; i<24; i++)
@@ -180,8 +176,6 @@ function Random_spray(){ // 계란을 랜덤하게 뿌려줄 함수
         image2.src = "img/laugh_egg.jpg";
         //Give_array(egg_id[q]); // 랜덤한 위치를 저장할 수 있게끔 다른 곳으로 넘겨줄 것임
     }
-    
-	alert("랜덤 스프레이 작동 중지");
 }
 
 function eggClick(egg){ // egg id 인 egg1 egg2 egg3 ...egg24  같은 것 클릭시 이벤트
