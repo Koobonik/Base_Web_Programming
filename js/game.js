@@ -144,7 +144,7 @@ function Game_over(){ // 게임 오버가 된다면 못찾은 계란을 띄워�
         }
         else{
             let image23 = document.getElementById("egg"+(k+1)); 
-            image23.src = "img/game_over.png";
+            //image23.src = "img/game_over.png";
         }
     }
     Get_game_button();
