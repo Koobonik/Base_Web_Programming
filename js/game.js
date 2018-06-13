@@ -30,8 +30,17 @@ function Game_start(){ // 게임 시작 전체적인 프로그램 흐름 제어 
     last_time = 20; // 초기에 20초 줄 예정
     game_time = 10; // 볼 수 있는 시간
     game_status = true; // 게임 진행 유무 true or false
+    Remove_game_button();
     Can_see_time(game_time, last_time); // 시작전 보는 시간과 게임중 남은 시간 인자
     Random_spray();
+}
+
+function Remove_game_button(){
+    document.getElementById("button").innerHTML=null;
+}
+
+function Get_game_button(){
+    document.getElementById("button").innerHTML="<h5>게임시작</h5>"
 }
 
 function Reset_variable(){ //게임 시작시 변수 초기화
@@ -138,8 +147,10 @@ function Game_over(){ // 게임 오버가 된다면 못찾은 계란을 띄워�
             let image2 = document.getElementById("egg"+(k+1)); 
             image2.src = "img/game_over.png";
         }
-        document.getElementById("Message_box").innerHTML="<h5>게임 오버</h5>";
+        
     }
+    Get_game_button();
+    document.getElementById("Message_box").innerHTML="<h5>게임 오버</h5>";
 }
 
 function Reset_image(){ // 이미지 리셋 (우는 계란으로 바꾸어 줄 것)
